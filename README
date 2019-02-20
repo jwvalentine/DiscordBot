@@ -1,0 +1,43 @@
+-*- READ THESE INSTRUCTIONS COMPLETELY BEFORE YOU BEGIN -*-
+
+1. Create a file:
+DiscordBot\Data\Token.txt
+2. Log into Discordapp.com
+3. Go to Developers -> Developer Portal
+4. Follow the process of creating an App, an a Bot, copy to Bot User Token to the file Token.txt
+5. Use the invitation link to invite your Bot to your Server*
+
+* If you don't have a Server, go through the process of creating one, and then invite your bot to the server.
+
+-*- READ THESE INSTRUCTIONS COMPLETELY BEFORE YOU BEGIN -*-
+
+
+
+
+
+
+
+BIG SHOUT OUT TO:
+
+Discordapp.com for allowing this to be possible.
+https://discordapp.com
+
+discord.foxbot.me for the incredible NuGet package and libraries, and the wonderful documentation.
+https://discord.foxbot.me
+
+@Sjustein for the excellent tutorial videos, the original source for this code, which will be heavily modified as time goes on
+https://www.youtube.com/channel/UCoC4QZeCMe7uf2ZMHambL8A/about
+
+
+
+
+
+
+
+
+
+-!- IF YOU HAVE TROUBLE, REVIEW THESE VIDEOS -!-
+
+https://www.youtube.com/channel/UCoC4QZeCMe7uf2ZMHambL8A/videos
+
+-!- IF YOU HAVE TROUBLE, REVIEW THESE VIDEOS -!-
