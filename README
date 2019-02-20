@@ -4,8 +4,9 @@
 	DiscordBot\Data\Token.txt
 2. Log into Discordapp.com
 3. Go to Developers -> Developer Portal
-4. Follow the process of creating an App, an a Bot, copy to Bot User Token to the file Token.txt
-5. Use the invitation link to invite your Bot to your Server*
+4. Follow the process of creating an App, and a Bot 
+5. Copy the Bot User Token to the file you've just created, Token.txt
+6. Use the invitation link to invite your Bot to your Server*
 
 * If you don't have a Server, go through the process of creating one, and then invite your bot to the server.
 
