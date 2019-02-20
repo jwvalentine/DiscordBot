@@ -1,7 +1,7 @@
 -*- READ THESE INSTRUCTIONS COMPLETELY BEFORE YOU BEGIN -*-
 
-1. Create a file:
-DiscordBot\Data\Token.txt
+1. Create a file and folder:
+	DiscordBot\Data\Token.txt
 2. Log into Discordapp.com
 3. Go to Developers -> Developer Portal
 4. Follow the process of creating an App, an a Bot, copy to Bot User Token to the file Token.txt
