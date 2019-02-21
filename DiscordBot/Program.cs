@@ -11,8 +11,8 @@ namespace DiscordBot
 {
     class Program
     {
-        private CommandService Commands;
-        private DiscordSocketClient Client;
+        private CommandService commands;
+        private DiscordSocketClient client;
 
         static void Main(string[] args)
         => new Program().Start()
@@ -23,23 +23,24 @@ namespace DiscordBot
         private async Task Start()
         {
 
-            Client = new DiscordSocketClient(new DiscordSocketConfig
+            client = new DiscordSocketClient(new DiscordSocketConfig
             {
                 LogLevel = LogSeverity.Debug
             });
 
-            Commands = new CommandService(new CommandServiceConfig
+            commands = new CommandService(new CommandServiceConfig
             {
                 CaseSensitiveCommands = true,
                 DefaultRunMode = RunMode.Async,
                 LogLevel = LogSeverity.Debug
             });
 
-            Client.MessageReceived += Client_MessageReceived;
-            await Commands.AddModulesAsync(Assembly.GetEntryAssembly());
 
-            Client.Ready += Client_Ready;
-            Client.Log += Client_Log;
+            client.MessageReceived += Client_MessageReceived;
+            await commands.AddModulesAsync(Assembly.GetEntryAssembly());
+
+            client.Ready += Client_Ready;
+            client.Log += Client_Log;
 
 
             // create an empty string to fill from file info
@@ -52,8 +53,8 @@ namespace DiscordBot
                 Token = ReadToken.ReadToEnd();
             }
 
-            await Client.LoginAsync(TokenType.Bot, Token);
-            await Client.StartAsync();
+            await client.LoginAsync(TokenType.Bot, Token);
+            await client.StartAsync();
             await Task.Delay(-1);
         }
 
@@ -64,25 +65,25 @@ namespace DiscordBot
 
         private async Task Client_Ready()
         {
-            await Client.SetGameAsync("Bulletbot - Test!", "https://www.twitch.tv/KobeKO", StreamType.NotStreaming);
+            await client.SetGameAsync("Bulletbot - Test!", "https://www.twitch.tv/KobeKO", StreamType.NotStreaming);
         }
 
         private async Task Client_MessageReceived(SocketMessage MessageParam)
         {
-            var Message = MessageParam as SocketUserMessage;
-            var context = new SocketCommandContext(Client, Message);
+            var message = MessageParam as SocketUserMessage;
+            var context = new SocketCommandContext(client, message);
 
             if (context.Message == null || context.Message.Content == string.Empty) return;
             if (context.User.IsBot) return;
 
             int ArgPos = 0;
 
-            if (!(Message.HasStringPrefix("!", ref ArgPos) || Message.HasMentionPrefix(Client.CurrentUser, ref ArgPos))) return;
+            if (!(message.HasStringPrefix("!", ref ArgPos) || message.HasMentionPrefix(client.CurrentUser, ref ArgPos))) return;
 
-            var Result = await Commands.ExecuteAsync(context, ArgPos);
+            var Result = await commands.ExecuteAsync(context, ArgPos);
             if (!Result.IsSuccess)
             {
-                Console.WriteLine($"{DateTime.Now} - Something went wrong with executing a command. Text: {context.Message.Content} | Error: {Result.ErrorReason}");
+                Console.WriteLine($"{DateTime.Now} ] !!! Something went wrong with executing a command. Text: {context.Message.Content} | Error: {Result.ErrorReason}");
             }
         }
 
